@@ -1,14 +1,17 @@
 {
-    "globals": {},
-    "moduleNameMapper": {},
-    "moduleDirectories": [
-        "src",
-        "node_modules"
-    ],
-    "moduleFileExtensions": [
-        "js",
-        "ts"
-    ],
-    "preset": "ts-jest",
-    "testEnvironment": "node"
+    const { defaults: tsjPreset } = require('ts-jest/presets');
+    // const { defaultsESM: tsjPreset } = require('ts-jest/presets')
+    // const { jsWithTs: tsjPreset } = require('ts-jest/presets')
+    // const { jsWithTsESM: tsjPreset } = require('ts-jest/presets')
+    // const { jsWithBabel: tsjPreset } = require('ts-jest/presets')
+    // const { jsWithBabelESM: tsjPreset } = require('ts-jest/presets')
+
+    /** @type {import('ts-jest').JestConfigWithTsJest} */
+    module.exports = {
+        preset: 'ts-jest',
+        transform: {
+            ...tsjPreset.transform,
+            // [...]
+        }
+    };
 }
